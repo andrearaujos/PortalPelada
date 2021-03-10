@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head> 
+	<title>Login Portal Peladas</title>
+</h:head>
+<h:body style="background-image: url('img/campo.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
+  <h:form>
+    <p:messages id="messages" />
+    <p:panelGrid columns="2" style="margin: 0 auto;">
+      <p:outputLabel for="email" value="E-mail:" />
+      <p:inputText id="email" value="#{LoginController.usuario.usu_email}" />
+
+      <p:outputLabel for="senha" value="Senha:" />
+      <p:password id="senha" value="#{LoginController.usuario.usu_senha}" />
+
+      <p:commandButton value="Entrar"
+                       icon="ui-icon-star" action="#{LoginController.login}" ajax="false">
+      </p:commandButton>
+
+      <p:button outcome="usuario-cadastro" value="Cadastrar-se" icon="pi pi-key" style="margin-right:20px;"/>
+    </p:panelGrid>
+  </h:form>
+</h:body>
+</html>

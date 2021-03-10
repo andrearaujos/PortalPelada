@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head> 
+	<title>Cadastro de Pelada</title>
+</h:head>
+<h:body style="background-image: url('img/campo.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
+    <p:growl  id="mensagem" showDetail="true" autoUpdate="true"
+              closable="true" />
+
+    <h:form id="frmPelada">
+        <p:panelGrid columns="2" style="horizontal-align:center; margin: 0 auto;">
+            <h:outputLabel for="nomeEvento" value="Nome do Evento Esportivo:" />
+            <h:inputText id="nomeEvento" value="#{PeladaController.pelada.pel_nome_evento}" />
+            <h:outputLabel value="Data Evento:" />
+            <p:calendar value="#{PeladaController.pelada.pel_data}" mask="true" pattern="dd/MM/yyyy" locale="pt_BR" id="dataEvento" showButtonPanel="true">
+                  <f:convertDateTime pattern="dd/MM/yyyy" />
+            </p:calendar>
+            <h:outputLabel value="Hora Evento:" />
+            <p:datePicker maxlength="6" id="horaEvento" showTime="true"  value="#{PeladaController.pelada.pel_hora}" timeOnly="true" pattern="HH:mm"/>
+            <h:outputLabel value="Local:" />
+            <h:inputText id="local" value="#{PeladaController.pelada.pel_local}" />
+        </p:panelGrid>
+        <p:panelGrid columns="6">
+            <h:commandButton action="#{PeladaController.criarPelada}" value="Incluir Nova Pelada" update="tabela" />
+        </p:panelGrid>
+    </h:form>
+    <p:button outcome="home" value="Voltar" icon="pi pi-arrow-left" style="margin-right:20px;"/>
+</h:body>
+</html>
